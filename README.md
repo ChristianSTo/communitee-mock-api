@@ -34,6 +34,13 @@ Authenticate a user and receive a JWT token.
 POST /login
 ```
 
+#### Credentials
+
+For testing purposes, the API accepts the following hardcoded credentials:
+
+- Username: `manager`
+- Password: `golfcourse123`
+
 #### Request Body
 
 ```json
@@ -51,11 +58,21 @@ POST /login
 }
 ```
 
-#### Error Response (400 Bad Request)
+#### Error Responses
+
+400 Bad Request
 
 ```json
 {
   "error": "Username and password are required"
+}
+```
+
+401 Unauthorized
+
+```json
+{
+  "error": "Invalid credentials"
 }
 ```
 
@@ -217,7 +234,7 @@ POST /message/:stream_id
 ```bash
 curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/json" \
-  -d '{"username": "manager", "password": "password123"}'
+  -d '{"username": "manager", "password": "golfcourse123"}'
 ```
 
 2. Use the token to get locations:

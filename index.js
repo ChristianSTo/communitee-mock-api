@@ -94,8 +94,12 @@ app.post('/login', (req, res) => {
     return res.status(400).json({ error: 'Username and password are required' });
   }
 
-  // In a real app, you would validate credentials against a database
-  const token = jwt.sign({ 
+  // Hardcoded credentials for testing
+  if (username !== 'manager' || password !== 'golfcourse123') {
+    return res.status(401).json({ error: 'Invalid credentials' });
+  }
+
+  const token = jwt.sign({
     userId: 'user-123',
     username: username,
     role: 'manager'

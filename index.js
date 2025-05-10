@@ -108,6 +108,20 @@ app.post('/login', (req, res) => {
   res.json({ token });
 });
 
+// Forgot password endpoint
+app.post('/forgot-password', (req, res) => {
+  const { username } = req.body;
+
+  if (!username) {
+    return res.status(400).json({ error: 'Username is required' });
+  }
+
+  // In a real app, this would trigger a password reset email
+  // For this mock API, we'll just return success
+  res.status(200).json({ success: true });
+});
+
+
 // Get locations endpoint
 app.get('/location', authenticateToken, (req, res) => {
   res.json(locations);

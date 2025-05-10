@@ -76,6 +76,38 @@ For testing purposes, the API accepts the following hardcoded credentials:
 }
 ```
 
+### Forgot Password
+
+Request a password reset.
+
+```
+POST /forgot-password
+```
+
+#### Request Body
+
+```json
+{
+  "username": "string"
+}
+```
+
+#### Response (200 OK)
+
+```json
+{
+  "success": true
+}
+```
+
+#### Error Response (400 Bad Request)
+
+```json
+{
+  "error": "Username is required"
+}
+```
+
 ### Get Locations
 
 Retrieve a list of golf course locations.

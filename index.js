@@ -28,7 +28,6 @@ const messageStreams = [
     lastMessageAt: "2025-04-26T20:00:00.000Z",
     lastMessage: "Is there availability for a game this Saturday?",
     locationId: "1",
-    senderId: "client-1",
     messages: [
       {
         id: "1",
@@ -53,7 +52,6 @@ const messageStreams = [
     lastMessageAt: "2025-04-26T18:30:00.000Z",
     lastMessage: "Perfect, see you tomorrow at 2 PM!",
     locationId: "2",
-    senderId: "client-2",
     messages: [
       {
         id: "3",
@@ -84,7 +82,6 @@ const messageStreams = [
     lastMessageAt: Date.now(),
     lastMessage: "How many golf carts are there?",
     locationId: "1",
-    senderId: "client-3",
     messages: [
       {
         id: "4",
@@ -109,7 +106,6 @@ const messageStreams = [
     lastMessageAt: Date.now() - 36000000,
     lastMessage: "When does the golf course close?",
     locationId: "1",
-    senderId: "client-4",
     messages: [
       {
         id: "5",
@@ -185,8 +181,7 @@ app.get("/message-stream", authenticateToken, (req, res) => {
 
   let filteredStreams = messageStreams.map((stream) => {
     const { messages, ...streamWithoutMessages } = stream;
-    // return streamWithoutMessages;
-    return stream;
+    return streamWithoutMessages;
   });
 
   if (locationId) {
